@@ -24,11 +24,19 @@ namespace FreddieBabord
     {
         bool showDebug = false;
 
-        [MenuItem("Freddie Babord/Camera Confinment")]
+        [MenuItem("Tools/Camera Confinment")]
         static void AddConfinment()
         {
             Selection.activeGameObject.AddComponent<ConfineToCamera>();
         }
+
+        [MenuItem("CONTEXT/Camera/Camera Confinment")]
+        static void AddConfinment(MenuCommand command)
+        {
+            Camera body = (Camera)command.context;
+            Selection.activeGameObject.AddComponent<ConfineToCamera>();
+        }
+        
 
         public override void OnInspectorGUI()
         {
